@@ -3,7 +3,7 @@ export interface ButtonProps
   children: React.ReactNode;
 }
 
-export function Button({ children, ...other }: ButtonProps): JSX.Element {
+export function Button({children, ...other}: ButtonProps): JSX.Element {
   return (
     <button type="button" {...other}>
       {children}
@@ -11,4 +11,4 @@ export function Button({ children, ...other }: ButtonProps): JSX.Element {
   );
 }
 
-Button.displayName = "Button";
+Button.displayName = 'Button';
