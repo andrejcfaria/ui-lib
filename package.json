@@ -4,20 +4,44 @@
   "description": "",
   "main": "index.js",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
+  "type": "module",
+  "packageManager": "yarn@1.22.22",
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "packages/*"
+    ]
+  },
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "dev": "turbo dev --parallel --continue",
+    "build": "turbo build",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "clean": "turbo run clean",
+    "release": "semantic-release"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.6.7",
-    "@commitlint/config-conventional": "^17.6.7",
-    "husky": "^8.0.3"
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.0",
+    "@semantic-release/github": "^11.0.1",
+    "@semantic-release/npm": "^12.0.1",
+    "@semantic-release/release-notes-generator": "^14.0.1",
+    "husky": "^9.1.6",
+    "semantic-release": "^24.2.0",
+    "semantic-release-monorepo": "^8.0.2",
+    "turbo": "^2.3.0"
   },
   "keywords": [],
   "author": "andre faria <fariaoandre@gmail.com>",
   "license": "ISC",
-  "repository": "git@github.com-exo:andrejcfaria/ui-lib.git"
+  "repository": "git@github.com-exo:andrejcfaria/ui-lib.git",
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": ["@semantic-release/commit-analyzer", "@semantic-release/release-notes-generator", "@semantic-release/npm"]
+  }
 }

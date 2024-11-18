@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "semantic-release": "^21.0.7"
   },
   "devDependencies": {
     "eslint-config": "^1.0.0",
