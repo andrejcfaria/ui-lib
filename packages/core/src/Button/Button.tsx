@@ -2,7 +2,7 @@
 import React from 'react';
 
 export interface ButtonProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   variant?: 'primary' | 'secondary';
   onClick?: () => void;
 }
@@ -10,6 +10,7 @@ export interface ButtonProps {
 export const Button = ({ children, variant = 'primary', onClick }: ButtonProps) => {
   return (
     <button
+    style={{background:"grey"}}
       className={`button ${variant}`}
       onClick={onClick}
     >

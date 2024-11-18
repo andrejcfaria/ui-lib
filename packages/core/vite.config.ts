@@ -33,5 +33,10 @@ export default defineConfig({
       insertTypesEntry: true,
       tsconfigPath: './tsconfig.json',
     })
-  ]
+  ],
+  resolve: {
+    alias: {
+      '@core': path.resolve(__dirname, '../../packages/core'),
+    }
+  }
 });

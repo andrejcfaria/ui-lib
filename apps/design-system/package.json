@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "storybook dev -p 6006", 
+    "dev": "storybook dev -p 6006",
     "build": "storybook build",
-    "build:storybook": "storybook build",
-    "clean": "rm -rf storybook-static"
+    "build-storybook": "storybook build",
+    "clean": "rm -rf storybook-static",
+    "chromatic": "npx chromatic --project-token=chpt_9f2c07ceeb02ab8 --build-dir=apps/design-system/storybook-static"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^8.4.4",
@@ -15,6 +16,7 @@
     "@storybook/addon-links": "^8.4.4",
     "@storybook/addon-onboarding": "^8.4.4",
     "@storybook/blocks": "^8.4.4",
+    "@storybook/builder-vite": "^8.4.4",
     "@storybook/react": "^8.4.4",
     "@storybook/react-vite": "^8.4.4",
     "@storybook/testing-library": "^0.2.2",
