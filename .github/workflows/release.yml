@@ -8,15 +8,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Setup Node.js
+      - name: Setup Node.js 20
         uses: actions/setup-node@v3
         with:
-          node-version-file: ".nvmrc"
+          node-version: '20'  # Ensure Node.js 20 is used
           cache: "yarn"
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile  # Use yarn for installing dependencies
       - name: Release a new version
-        run: yarn release
+        run: yarn release  # Run your release command
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}  # Add NPM token if you want to publish to npm
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

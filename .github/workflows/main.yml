@@ -8,22 +8,22 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version-file: ".nvmrc"
-          cache: "npm"
+          node-version-file: ".nvmrc"   # Ensure Node.js version from .nvmrc is used
+          cache: "yarn"                  # Use Yarn cache instead of npm
       - name: Install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile  # Use yarn instead of npm
       - name: Run ESLint
-        run: npm run lint:scripts
+        run: yarn lint:scripts  # Run ESLint using Yarn
       - name: Run Stylelint
-        run: npm run lint:styles
+        run: yarn lint:styles  # Run Stylelint using Yarn
       - name: Run Tests
-        run: npm test
+        run: yarn test  # Run tests using Yarn
         env:
           CI: true
       - name: Run Cypress
         uses: cypress-io/github-action@v5
         with:
-          build: npm run build
-          start: npm run serve -- --port=5173
+          build: yarn build  # Build with Yarn
+          start: yarn serve -- --port=5173  # Serve with Yarn
           wait-on: 'http://127.0.0.1:5173'
           browser: chrome
