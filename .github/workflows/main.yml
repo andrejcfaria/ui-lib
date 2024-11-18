@@ -1,10 +1,7 @@
-name: "Release"
-on:
-  push:
-    branches:
-      - main
+name: "Main"
+on: pull_request
 jobs:
-  semantic-release:
+  lint-and-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -12,11 +9,21 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
-          cache: "yarn"  # Use Yarn cache instead of npm
+          cache: "npm"
       - name: Install dependencies
-        run: yarn install --frozen-lockfile  # Install dependencies with Yarn
-      - name: Release a new version
-        run: yarn release  # Replace `npm run release` with `yarn release`
+        run: npm ci
+      - name: Run ESLint
+        run: npm run lint:scripts
+      - name: Run Stylelint
+        run: npm run lint:styles
+      - name: Run Tests
+        run: npm test
         env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          NPM_TOKEN: "${{ secrets.NPM_TOKEN }}"  # Add your npm token for publishing if needed
+          CI: true
+      - name: Run Cypress
+        uses: cypress-io/github-action@v5
+        with:
+          build: npm run build
+          start: npm run serve -- --port=5173
+          wait-on: 'http://127.0.0.1:5173'
+          browser: chrome
