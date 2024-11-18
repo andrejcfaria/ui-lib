@@ -38,7 +38,7 @@
   "keywords": [],
   "author": "andre faria <fariaoandre@gmail.com>",
   "license": "ISC",
-  "repository": "git@github.com-exo:andrejcfaria/ui-lib.git",
+  "repository": "git@github.com:andrejcfaria/ui-lib.git",
   "release": {
     "branches": [
       "main"
