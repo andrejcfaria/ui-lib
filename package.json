@@ -1,24 +1,23 @@
 {
+  "name": "demo-monorepo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "private": true,
-  "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "clean": "turbo run clean && rm -rf node_modules",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "changeset": "changeset",
-    "version-packages": "changeset version",
-    "release": "turbo run build --filter=docs^... && changeset publish"
-  },
-  "devDependencies": {
-    "@changesets/cli": "^2.27.1",
-    "prettier": "^3.2.5",
-    "turbo": "^2.3.0"
-  },
-  "name": "design-system",
-  "packageManager": "yarn@1.22.22",
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.7",
+    "@commitlint/config-conventional": "^17.6.7",
+    "husky": "^8.0.3"
+  },
+  "keywords": [],
+  "author": "andre faria <fariaoandre@gmail.com>",
+  "license": "ISC",
+  "repository": "git@github.com-exo:andrejcfaria/ui-lib.git"
 }
