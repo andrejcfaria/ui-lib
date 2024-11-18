@@ -40,6 +40,7 @@
   "license": "ISC",
   "repository": "git@github.com:andrejcfaria/ui-lib.git",
   "release": {
+    "repositoryUrl": "git@github.com-exo:andrejcfaria/ui-lib.git",
     "branches": [
       "main"
     ],
