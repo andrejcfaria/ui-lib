@@ -1,3 +1,4 @@
+
 name: "Release"
 on:
   push:
@@ -16,6 +17,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Release a new version
-        run: npx semantic-release
+        run: npm run release
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          
