@@ -30,9 +30,6 @@ jobs:
                 IdentityFile ~/.ssh/id_rsa" > ~/.ssh/config
           chmod 600 ~/.ssh/config
 
-      - name: Test SSH  # Optional: Test if SSH works
-        run: ssh -T git@github.com-exo
-
       - name: Release a new version
         run: yarn release  # Run your release command
         env:
