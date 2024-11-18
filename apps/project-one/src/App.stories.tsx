@@ -1,9 +1,10 @@
+
 import { Meta, StoryObj } from '@storybook/react'
 
 import { App } from './App'
 
 const meta = {
-  title: 'Components/App',
+  title: 'Project One/Components/App',
   component: App,
 } satisfies Meta<typeof App>
 
