@@ -12,12 +12,15 @@
     "noEmit": false,  // Important for library builds
     "declaration": true,
     "declarationMap": true,
-    "jsx": "react-jsx",
+      "jsx": "react-jsx",
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "types": ["node", "jest", "@testing-library/jest-dom"],
+
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", "dist"],
+
 }

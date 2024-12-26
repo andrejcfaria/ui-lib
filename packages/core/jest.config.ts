@@ -1,4 +1,4 @@
-import type { JestConfigWithTsJest } from 'ts-jest'
+import type { JestConfigWithTsJest } from 'ts-jest';
 
 const jestConfig: JestConfigWithTsJest = {
   preset: 'ts-jest',
@@ -17,6 +17,9 @@ const jestConfig: JestConfigWithTsJest = {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
   },
   testEnvironment: 'jest-environment-jsdom',
+  transformIgnorePatterns: ['<rootDir>/node_modules/'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+
 }
 
 export default jestConfig
