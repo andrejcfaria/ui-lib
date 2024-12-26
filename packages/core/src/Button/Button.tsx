@@ -1,20 +1,11 @@
-// packages/core/src/button/Button.tsx
-import React from 'react';
+import { ElementType } from 'react'
+import { ButtonProps } from './Button.types'
 
-export interface ButtonProps {
-  children?: React.ReactNode;
-  variant?: 'primary' | 'secondary';
-  onClick?: () => void;
+let DEFAULT_BUTTON_TAG = 'button' as const
+
+export const Button = <T extends ElementType = typeof DEFAULT_BUTTON_TAG>({
+  as,
+  ...props
+}: ButtonProps<T>) => {
+  return <button {...props}></button>
 }
-
-export const Button = ({ children, variant = 'primary', onClick }: ButtonProps) => {
-  return (
-    <button
-    style={{background:"grey"}}
-      className={`button ${variant}`}
-      onClick={onClick}
-    >
-      {children}
-    </button>
-  );
-};
